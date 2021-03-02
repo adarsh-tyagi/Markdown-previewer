@@ -1,0 +1,172 @@
+$darkAccent: #b00000;
+$lightAccent: #f75c5c;
+$backgroundBase: #e00d2d;
+$shadow: 1px 1px 10px 2px black;
+$default-border: 1px solid darken($backgroundBase, 40%);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: lighten($backgroundBase, 15%);
+  margin: 10px 0;
+}
+
+#preview,
+.title {
+  display: inline-block;
+}
+
+.colorScheme {
+  background-color: $lightAccent;
+  border: $default-border;
+  box-shadow: $shadow;
+  border-top: none;
+}
+
+.toolbar {
+  position: relative;
+  background-color: lighten($darkAccent, 10%);
+  padding: 0.5rem 0.3rem;
+  border: $default-border;
+  box-shadow: $shadow;
+  font-family: verdana;
+  font-size: 1rem;
+  i {
+    width: 1.5rem;
+    color: black;
+    margin-left: 0.3rem;
+  }
+  .fa-arrows-alt,
+  .fa-compress {
+    position: absolute;
+    right: -0.3rem;
+  }
+}
+
+.fa-arrows-alt,
+.fa-compress {
+  &:hover {
+    color: lighten($lightAccent, 20%);
+    cursor: pointer;
+  }
+}
+
+.fa-file {
+  margin-right: 0.25rem;
+}
+
+.editorWrap {
+  width: 600px;
+  margin: 1.5rem auto;
+  .toolbar {
+    width: 100%;
+  }
+  textarea {
+    @extend .colorScheme;
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: -5px;
+    resize: vertical;
+    outline: none;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+.converter {
+  width: 100px;
+  text-align: center;
+  font-size: 2rem;
+  margin: auto;
+}
+
+.previewWrap {
+  @extend .colorScheme;
+  width: 800px;
+  margin: 1.3rem auto;
+  min-height: 200px;
+  overflow-wrap: break-word;
+  padding-right: 1.2rem;
+  .toolbar {
+    left: -1px;
+    width: 100%;
+    padding-right: 1rem;
+  }
+  #preview {
+    margin-left: 5px;
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+.maximized {
+  width: 96%;
+  min-height: 100vh;
+  margin: auto;
+  textarea {
+    min-height: 95vh;
+    resize: none;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .previewWrap {
+    width: 90%;
+  }
+  .editorWrap {
+    width: 80%;
+  }
+}
+
+// MARKDOWN STYLES
+#preview {
+  blockquote {
+    border-left: 3px solid $darkAccent;
+    color: $darkAccent;
+    padding-left: 5px;
+    margin-left: 1.5rem;
+  }
+
+  code {
+    background: white;
+    padding: 2px 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  pre {
+    background: white;
+    padding: 5px 0 5px 5px;
+  }
+
+  h1 {
+    border-bottom: 2px solid black;
+    padding: 0.5rem 0;
+  }
+  h2 {
+    border-bottom: 1px solid black;
+    padding: 0.5rem 0;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    border: 2px solid black;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  ul,
+  ol {
+    padding-left: 1rem;
+  }
+}
