@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import marked from "marked";
 import "./index.scss";
-import reportWebVitals from "./reportWebVitals";
+
 
 marked.setOptions({
   breaks: true,
@@ -10,6 +10,7 @@ marked.setOptions({
 
 const renderer = new marked.Renderer();
 renderer.link = function (href, title, text) {
+	// eslint-disable-next-line
   return `<a target="_blank" href="${href}">${text}` + "</a>";
 };
 
